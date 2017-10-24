@@ -6,6 +6,13 @@ class GithubScore extends Component {
     let { scores } = this.props;
     let status = {color: 'black'};
     let message = '';
+
+    if(scores.score == 'error') {
+        scores.score = 0;
+        message = 'Error: Cannot find user';
+        status = {color: 'red'};
+    }
+
     if(!scores.score) {
         scores.score = 0;
     } else if(scores.score < 20) {
